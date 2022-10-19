@@ -40,7 +40,10 @@ class RedisPipeline:
 
     def _process_item(self, item: EventItem, spider):  # pylint: disable=W0613
         key = event_key.format(match_id=item.id)
+        # do not add events which are already in the events list
+        if not self.server.get(key):
+            self.server.lpush(events_list_key, item.id)
         data = self.serialize(item)
         self.server.set(key, data)
-        self.server.lpush(events_list_key, item.id)
+
         return item
