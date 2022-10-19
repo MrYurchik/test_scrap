@@ -73,6 +73,7 @@ async def main():
     logging.info("Task queue has been created, starting tasks...")
     await asyncio.gather(*tasks)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(main())
