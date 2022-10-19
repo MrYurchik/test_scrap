@@ -5,11 +5,9 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+# from itemadapter import ItemAdapter
 
 
 class XbetPipeline:
-    def process_item(self, item, spider):
+    def process_item(self, item, spider):  # pylint: disable=W0613
         return item
-
-

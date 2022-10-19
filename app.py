@@ -5,7 +5,7 @@ from redis import Redis
 
 from xbet.xbet.redis_pipeline import event_key, events_list_key
 
-redis_conn = Redis(host='127.0.0.1', port=6379, db=0, decode_responses=True)
+redis_conn = Redis(host="127.0.0.1", port=6379, db=0, decode_responses=True)
 app = Flask(__name__)
 
 
@@ -21,6 +21,6 @@ def return_events(start, end):
 
 @app.route("/events")
 def events():
-    start = int(request.args.get('start', 0))
-    end = int(request.args.get('end', 10))
+    start = int(request.args.get("start", 0))
+    end = int(request.args.get("end", 10))
     return return_events(start, end)

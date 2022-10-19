@@ -3,10 +3,8 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
-
 # useful for handling different item types with a single interface
-from itemadapter import is_item, ItemAdapter
+from scrapy import signals
 
 
 class XbetSpiderMiddleware:
@@ -21,14 +19,14 @@ class XbetSpiderMiddleware:
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_spider_input(self, response, spider):
+    def process_spider_input(self, response, spider):  # pylint: disable=W0613
         # Called for each response that goes through the spider
         # middleware and into the spider.
 
         # Should return None or raise an exception.
         return None
 
-    def process_spider_output(self, response, result, spider):
+    def process_spider_output(self, response, result, spider):  # pylint: disable=W0613
         # Called with the results returned from the Spider, after
         # it has processed the response.
 
@@ -43,7 +41,7 @@ class XbetSpiderMiddleware:
         # Should return either None or an iterable of Request or item objects.
         pass
 
-    def process_start_requests(self, start_requests, spider):
+    def process_start_requests(self, start_requests, spider):  # pylint: disable=W0613
         # Called with the start requests of the spider, and works
         # similarly to the process_spider_output() method, except
         # that it doesn’t have a response associated.
@@ -53,7 +51,7 @@ class XbetSpiderMiddleware:
             yield r
 
     def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
+        spider.logger.info("Spider opened: %s" % spider.name)
 
 
 class XbetDownloaderMiddleware:
@@ -68,7 +66,7 @@ class XbetDownloaderMiddleware:
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_request(self, request, spider):
+    def process_request(self, request, spider):  # pylint: disable=W0613
         # Called for each request that goes through the downloader
         # middleware.
 
@@ -80,7 +78,7 @@ class XbetDownloaderMiddleware:
         #   installed downloader middleware will be called
         return None
 
-    def process_response(self, request, response, spider):
+    def process_response(self, request, response, spider):  # pylint: disable=W0613
         # Called with the response returned from the downloader.
 
         # Must either;
@@ -100,4 +98,4 @@ class XbetDownloaderMiddleware:
         pass
 
     def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
+        spider.logger.info("Spider opened: %s" % spider.name)

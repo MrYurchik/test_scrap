@@ -4,14 +4,14 @@ from twisted.internet.threads import deferToThread
 
 from .models import EventItem
 
-redis_conn = Redis(host='127.0.0.1', port=6379, db=0, decode_responses=True)
+redis_conn = Redis(host="127.0.0.1", port=6379, db=0, decode_responses=True)
 
 default_serialize = ScrapyJSONEncoder().encode
-events_list_key = 'events:list'
-event_key = 'events:{match_id}'
+events_list_key = "events:list"
+event_key = "events:{match_id}"
 
 
-class RedisPipeline(object):
+class RedisPipeline:
     """Pushes serialized item into a redis list/queue
 
     Settings
@@ -23,8 +23,7 @@ class RedisPipeline(object):
 
     """
 
-    def __init__(self,
-                 serialize_func=default_serialize):
+    def __init__(self, serialize_func=default_serialize):
         """Initialize pipeline.
 
         Parameters
@@ -39,7 +38,7 @@ class RedisPipeline(object):
     def process_item(self, item: EventItem, spider):
         return deferToThread(self._process_item, item, spider)
 
-    def _process_item(self, item: EventItem, spider):
+    def _process_item(self, item: EventItem, spider):  # pylint: disable=W0613
         key = event_key.format(match_id=item.id)
         data = self.serialize(item)
         self.server.set(key, data)
