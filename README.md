@@ -39,7 +39,7 @@ Setup Redis, and specify the host and port in two files redis_pipline.py(line 7)
 After successful setup project run app.py to run local server.
 Use this command to run Scrapy crawler in xbet directory:
 `scrapy crawl ua1xbet`
-
+Open in web browser `http://localhost:port/events?start=0&end=10` or without parameters to see first 10 events.
 
 ## Project Status
 Project is:  _in progress_
