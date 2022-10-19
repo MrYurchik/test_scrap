@@ -8,6 +8,7 @@
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
+* [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
 
 
@@ -32,7 +33,7 @@ List the ready features here:
 
 ## Setup
 Python version 3.9 or higher. All project requirements stored in the root directory. 
-Raise Redis, and specify the host and port in two files redis_pipline.py(line 7), app.py(line 8)
+Setup Redis, and specify the host and port in two files redis_pipline.py(line 7), app.py(line 8)
 
 ## Usage
 After successful setup project run app.py to run local server.
@@ -41,7 +42,13 @@ Use this command to run Scrapy crawler in xbet directory:
 
 
 ## Project Status
-Project is:  _complete_
+Project is:  _in progress_
+
+## Room for Improvement
+
+To do:
+- Add unittest
+- Make Docker container with Redis database 
 
 
 ## Contact
