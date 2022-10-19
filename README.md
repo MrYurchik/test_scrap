@@ -49,6 +49,7 @@ Project is:  _in progress_
 To do:
 - Add unittest
 - Make Docker container with Redis database 
+- Add typing
 
 
 ## Contact
