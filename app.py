@@ -24,3 +24,7 @@ def events():
     start = int(request.args.get("start", 0))
     end = int(request.args.get("end", 10))
     return return_events(start, end)
+
+
+if __name__ == "__main__":
+    app.run()
